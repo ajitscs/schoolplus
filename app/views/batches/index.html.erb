@@ -1,0 +1,30 @@
+<%= link_to "Home", root_path %>
+<%= link_to "Create", new_school_course_batch_path(school_id: @school.id, course_id: @course.id) %>
+<br><br>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Start Date</th>
+      <th>Course</th>
+      <br />
+    </tr>
+  </thead>
+  <tbody>
+    <% @batches.each do |batch| %>
+      <tr>
+        <td><%= batch.id %></td>
+        <td><%= batch.title %></td>
+        <td><%= batch.start_date %></td>
+        <td><%= batch.course.title %></td>
+        <td>
+          <%= link_to "Edit", edit_school_course_batch_path(school_id: @school.id, course_id: @course.id, id: batch.id) %>
+          <%= link_to "Show", school_course_batch_path(school_id: @school.id, course_id: @course.id, id: batch.id) %>
+          <%= link_to "Destroy", school_course_batch_path(school_id: @school.id, course_id: @course.id, id: batch.id), method: :delete, data: { confirm: "Are you sure?" } %>
+        </td>
+      </tr>
+    <% end %>    
+  </tbody>
+</table>

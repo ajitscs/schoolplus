@@ -1,0 +1,7 @@
+<h1>Edit Batches for <b><%= @course.title.titleize %></b></h1>
+<%= form_for @batch, as: :batch, url: school_course_batch_path(school_id: @school.id, course_id: @course.id, id: @batch.id), method: :put, html: { class: "edit_batch", id: "edit_batch" } do |f| %>
+  <%= render partial: "form", locals: { f: f } %>
+<% end %>
+
+<br>
+<%= link_to "Home", root_path %>

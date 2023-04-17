@@ -12,7 +12,7 @@
   <% if current_user.school_admin? %>
     <%= link_to "Update School Info", edit_school_path(@school.id) %><br>
     <%= link_to "Manage Courses", school_courses_path(school_id: @school.id) %><br>
-    <%= link_to "Manage Batches" %><br>
+    
     <%= link_to "Manage Students" %><br>
     <%= link_to "Manage Enrollment Requests" %><br>
   <% end %>

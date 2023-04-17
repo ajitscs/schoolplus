@@ -13,6 +13,7 @@ class Ability
       can :update, School
       can :show, School
       can :manage, Course
+      can :manage, Batch
     end
 
     if user.admin?

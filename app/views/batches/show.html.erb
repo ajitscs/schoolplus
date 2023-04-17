@@ -1,0 +1,7 @@
+Name: <%= @batch.title %><br>
+start date: <%= @batch.start_date %><br>
+
+<br>
+<%= link_to "Home", root_path %>
+<%= link_to "Edit", edit_school_course_batch_path(school_id: @school.id, course_id: @course.id, id: @batch.id) %>
+<%= link_to "Destroy", school_course_batch_path(school_id: @school.id, course_id: @course.id, id: @batch.id), method: :delete, data: { confirm: "Are you sure?" } %>  

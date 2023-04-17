@@ -1,5 +1,5 @@
 <%= link_to "Home", root_path %>
-<%= link_to "Create", new_school_course_path(school_id: @school.id) %>
+<%= link_to "Create", new_school_course_path(school_id: @school.id) %><br>
 
 <br><br>
 
@@ -22,8 +22,10 @@
           <%= link_to "Edit", edit_school_course_path(school_id: @school.id, id: course.id) %>
           <%= link_to "Show", school_course_path(school_id: @school.id, id: course.id) %>
           <%= link_to "Destroy", school_course_path(school_id: @school.id, id: course.id), method: :delete, data: { confirm: "Are you sure?" } %>
+          <%= link_to "Manage Batches", school_course_batches_path(school_id: @school.id, course_id: course.id) %><br>
         </td>
       </tr>
     <% end %>    
   </tbody>
 </table>
+

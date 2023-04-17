@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_17_132200) do
+ActiveRecord::Schema.define(version: 2023_04_17_144311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "batches", force: :cascade do |t|
+    t.string "title"
+    t.string "start_date"
+    t.bigint "school_id"
+    t.bigint "user_id"
+    t.bigint "course_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_id"], name: "index_batches_on_course_id"
+    t.index ["school_id"], name: "index_batches_on_school_id"
+    t.index ["user_id"], name: "index_batches_on_user_id"
+  end
 
   create_table "courses", force: :cascade do |t|
     t.string "title"
