@@ -1,0 +1,32 @@
+<%= link_to "Home", root_path %>
+<%= link_to "Create", new_school_path %>
+
+<br><br>
+
+<table class="table table-striped">
+  <thead>
+   <tr>
+     <th>ID</th>
+     <th>Name</th>
+     <th>Address</th>
+     <th>Phone</th>
+     <th>Actions</th>
+     <br />
+    </tr>
+  </thead>
+  <tbody>
+    <% @schools.each do |school| %>
+      <tr>
+        <td><%= school.id %></td>
+        <td><%= school.title %></td>
+        <td><%= school.address %></td>
+        <td><%= school.contact %></td>
+        <td>
+          <%= link_to "Edit", edit_school_path(school.id) %>
+          <%= link_to "Show", school_path(school.id) %>
+          <%= link_to "Destroy", school_path(school.id), method: :delete, data: { confirm: "Are you sure?" } %>
+        </td>
+      </tr>
+    <% end %>    
+  </tbody>
+</table>

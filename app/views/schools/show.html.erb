@@ -1,0 +1,9 @@
+Name: <%= @school.title %><br>
+Address: <%= @school.address %><br>
+Phone: <%= @school.contact %><br>
+
+
+<br>
+<%= link_to "Home", root_path %>
+<%= link_to "Edit", edit_school_path(@school.id) %>
+<%= link_to "Destroy", school_path(@school.id), method: :delete, data: { confirm: "Are you sure?" } %>  

@@ -1,0 +1,7 @@
+<h1>Edit</h1>
+<%= form_for @school, as: :school, url: school_path(@school), method: :put, html: { class: "edit_school", id: "edit_school" } do |f| %>
+  <%= render partial: "form", locals: { f: f } %>
+<% end %>
+
+<br>
+<%= link_to "Home", root_path %>

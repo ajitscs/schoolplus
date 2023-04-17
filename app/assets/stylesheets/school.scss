@@ -1,0 +1,140 @@
+// Place all the styles related to the School controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.bg-custom-1 {
+background-color: #85144b;
+}
+.bg-custom-2 {
+background-image: linear-gradient(15deg, #fff , orange);
+}
+body {
+  background: white;
+  color: black;
+  font-family: 'Merriweather', sans-serif;
+}
+h1,
+h2 {
+  font-weight: bold;
+}
+p {
+  font-size: 14px;
+  color: black;
+}
+a:visited {
+  color:black;
+}
+.jumbotron {
+  background: #0048CD;
+  color: white;
+  text-align: center;
+}
+p {
+  color: black;
+  font-size: 26px;
+}
+.link {
+  color: white;
+}
+.btn-primary {
+  color: white;
+  border-color: white;
+  margin-bottom: 5px;
+}
+.btn-sm {
+  background-color:white;
+  display: inline-block;
+}
+img,
+video,
+audio {
+  margin-top: 20px;
+  max-width: 80%;
+}
+caption {
+  float: left;
+  clear: both;
+}
+.container{
+  margin-top:20px;
+  padding-top:10px;
+}
+.box{
+  padding-top:30px;
+  height:200px;
+  width:40%;
+  margin-left:30%;
+  border-radius:10px;
+  border:1px solid black;
+  background-color:#f1f1f1;
+  text-align:center;
+}
+.panel-heading
+/*FOOTER*/
+footer {
+  background: #16222A;
+  background: -webkit-linear-gradient(59deg, #3A6073, #16222A);
+  background: linear-gradient(59deg, #3A6073, #16222A);
+  color: white;
+  margin-top:100px;
+  padding-top: 10px;
+  padding-bottom: 0px;
+}
+.mainfooter{
+  background-color: #F3F3F3;
+  padding-top: 10px;
+  padding-bottom: 0px;
+}
+footer a {
+  color: #fff;
+  font-size: 14px;
+  transition-duration: 0.2s;
+}
+footer a:hover {
+  color: #FA944B;
+  text-decoration: none;
+}
+.copy {
+  font-size: 12px;
+  padding: 10px;
+  border-top: 1px solid #FFFFFF;
+}
+.footer{
+  padding: 10px 0;
+  margin-top:760px;
+  position:fixed;
+  padding-top:20px;  
+  bottom: 0px;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  background-color: lightseagreen;
+}
+
+.navbar-dark .navbar-brand {
+  color: #000;
+  font-size: 18px;
+  display: -webkit-box;
+}
+
+.logo{
+  margin-left: 1rem;
+  margin-right: 95em;
+  margin-bottom: 2em;
+  cursor: pointer;
+  outline: none;
+  width: 70px; 
+  height: 90px; 
+  display: block; 
+}
+.navbar .nav{
+  text-align: center;
+}
+.nav-item ul li{
+  list-style: none;
+}
+.nav-item ul li a{
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+  box-sizing: border-box;
+}

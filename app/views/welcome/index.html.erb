@@ -1,0 +1,25 @@
+<h1>School Plus</h1>
+<p>An Advance School Management Tool</p>
+
+<% if current_user.present? %>
+  <!-- for admin -->
+  <% if current_user.admin? %>
+    <%= link_to "Manage User", schools_path %><br>
+    <%= link_to "Manage School" %><br>
+  <% end %>
+
+  <!-- for super admin -->
+  <% if current_user.school_admin? %>
+    <%= link_to "Update School", edit_school_path(@school.id) %><br>
+    <%= link_to "Manage Courses" %><br>
+    <%= link_to "Manage Batches" %><br>
+    <%= link_to "Manage Students" %><br>
+    <%= link_to "Manage Enrollment Requests" %><br>
+  <% end %>
+  
+  <!-- for students -->
+  <% if current_user.student? %>
+    <%= link_to "Classmates" %><br>
+    <%= link_to "Enrol" %><br>
+  <% end %>
+<% end %>

@@ -1,0 +1,6 @@
+Email: <%= f.text_field :email %><br>
+First Name: <%= f.text_field :first_name %><br>
+Last Name: <%= f.text_field :last_name %><br>
+Phone: <%= f.text_field :contact %><br>
+Role: <%= f.select :role, User::ROLES, selected: f.object.roles.first.try(:name) %><br>
+<%= f.submit %>

@@ -1,0 +1,25 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  timeout: 5000
+  username: postgres
+  password: admin
+
+development:
+  <<: *default
+  host: localhost
+  database: schoolplus
+
+
+test:
+  <<: *default
+  host: localhost
+  database: schoolplus_test
+
+production:
+  <<: *default
+  host: some_prod_url
+  database: schoolplus_prod
+  username: YOUR_APP_NAME_HERE
+  password: <%= ENV['YOUR_APP_NAME_HERE_DATABASE_PASSWORD'] %>

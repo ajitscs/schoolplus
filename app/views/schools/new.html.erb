@@ -1,0 +1,4 @@
+<h1>Create new School</h1>
+<%= form_for @school, as: :school, url: schools_path, html: { class: "new_school", id: "new_school" } do |f| %>
+  <%= render partial: "form", locals: { f: f } %>
+<% end %>
