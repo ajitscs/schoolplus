@@ -12,6 +12,7 @@ class Ability
       # can :manage, User
       can :update, School
       can :show, School
+      can :manage, Course
     end
 
     if user.admin?

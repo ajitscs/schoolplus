@@ -1,0 +1,7 @@
+Name: <%= @course.title %><br>
+Duration: <%= @course.duration %><br>
+
+<br>
+<%= link_to "Home", root_path %>
+<%= link_to "Edit", edit_school_course_path(school_id: @school.id, id: @course.id) %>
+<%= link_to "Destroy", school_path(@school.id), method: :delete, data: { confirm: "Are you sure?" } %>  
