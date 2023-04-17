@@ -7,7 +7,10 @@
 <!-- Login and Logout button -->
 
     <% if user_signed_in? %>
-      Welcome <b><%= current_user.full_name %></b>, you are login with <b><%= current_user.role_name %></b> role
+      Welcome <b><%= current_user.full_name %></b>, you are login with <b><%= current_user.role_name %></b> role<br>
+      <% if @school.present? %>
+        School Name: <b><%= @school.title.titleize %></b>
+      <% end %>
       <%= button_to 'Log Out', destroy_user_session_path, method: :delete, class: 'btn btn-danger' %>
     <% elsif !user_signed_in? %>
       <%= link_to "Log In", new_user_session_path, method: :new, class: "btn btn-success" %>

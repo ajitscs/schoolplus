@@ -1,6 +1,7 @@
 class SchoolsController < ApplicationController
   load_and_authorize_resource
   before_action :initialize_school, only: %I[show update edit destroy]
+  before_action :validate_school_admin, only: [:edit, :update, :show]
 
   def index
     @schools = School.all.order(id: :desc)#.paginate(page: params[:page])
@@ -56,5 +57,11 @@ class SchoolsController < ApplicationController
       flash[:error] = "School not found"
       redirect_to root_path and return
     end 
+  end
+
+  def validate_school_admin
+    return if current_user.school_admin? && current_user.school == @school
+    flash[:error] = "You are not authorized to update this school"
+    redirect_to root_path and return
   end
 end

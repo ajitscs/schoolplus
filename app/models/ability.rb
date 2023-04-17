@@ -9,7 +9,9 @@ class Ability
     # byebug
     return unless user.present?
     if user.school_admin?
-      can :manage, User, School
+      # can :manage, User
+      can :update, School
+      can :show, School
     end
 
     if user.admin?

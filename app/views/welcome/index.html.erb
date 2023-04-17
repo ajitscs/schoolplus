@@ -10,7 +10,7 @@
 
   <!-- for super admin -->
   <% if current_user.school_admin? %>
-    <%= link_to "Update School", edit_school_path(@school.id) %><br>
+    <%= link_to "Update School Info", edit_school_path(@school.id) %><br>
     <%= link_to "Manage Courses" %><br>
     <%= link_to "Manage Batches" %><br>
     <%= link_to "Manage Students" %><br>
