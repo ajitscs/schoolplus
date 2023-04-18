@@ -1,24 +1,34 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rquirement for Ruby and Rails
+* Ruby 3.0.0, Rails 6.0.3
 
-Things you may want to cover:
+Setup
+- Update the database.yml file with your postgres credentials
+- bundle
+- rake db:create
+- rake db:migrate
+- rake db:seed, you will get an email with password(letter openner implemented for devs) 
 
-* Ruby version
+You can login with Admin role using the password from email(make sure to run the seed):
+- email: admin@schoolplus.com
 
-* System dependencies
+User Roles: There are three user roles
+- Admin
+- Schoool Admin
+- Student
 
-* Configuration
+Features
+- Admin can register the users as School Admin.
+- On registration by admin, the school admin will get an email with password and link using which he can login to the system.
+- School Admins can create the Courses, Batches and Students.
+- When School admin register the Student, the student will get the password over email.
+- Student can login and request enrollment to a batch for a course.
+- School Admin can see the enrollment requests by clicking on "Manage Enrollment Requests" link, on batches list/index page. Sample URL http://localhost:3000/schools/5/courses/5/batches and can Approve or Deny the Student's Enrollment Requests.
 
-* Database creation
+Check models/ability.rb comments for knowing the access control with different user roles. 
 
-* Database initialization
+Run tests
+- bundle exec rspec spec
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Contribute to improve the code and add new features.
