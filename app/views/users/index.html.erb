@@ -11,6 +11,7 @@
      <th>Email</th>
      <th>Role</th>
      <th>Phone</th>
+     <th>School</th>
      <th>Actions</th>
      <br />
     </tr>
@@ -23,6 +24,7 @@
         <td><%= user.email %></td>
         <td><%= user.role_name %></td>
         <td><%= user.contact %></td>
+        <td><%= user.school.try(:title) %></td>
         <td>
           <%= link_to "Edit", edit_user_path(user.id) %>
           <%= link_to "Show", user_path(user.id) %>

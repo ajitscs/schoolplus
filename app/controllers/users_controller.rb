@@ -3,7 +3,12 @@ class UsersController < ApplicationController
   before_action :initialize_user, only: %I[show update edit destroy]
 
   def index
-    @users = User.all.order(id: :desc)#.paginate(page: params[:page])
+    if current_user.admin?
+      @users = User.all.order_by_recent
+    elsif current_user.school_admin?
+      @school = current_user.school
+      @users = User.with_role(:student).with_school(@school.id).order_by_recent
+    end
   end
 
   def new
@@ -47,7 +52,11 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :first_name, :last_name, :role, :contact)
+    if current_user.school_admin?
+      params[:user][:role] = "student"
+      params[:user][:school_id] = current_user.school.id
+    end
+    params.require(:user).permit(:email, :first_name, :last_name, :role, :contact, :school_id)
   end
 
   def initialize_user

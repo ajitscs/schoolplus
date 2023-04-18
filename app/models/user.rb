@@ -11,6 +11,9 @@ class User < ApplicationRecord
   validates_format_of :contact, :with =>  /\d[0-9]\)*\z/ , :message => "Only positive number without spaces are allowed"
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
+  #SCOPES
+  scope :order_by_recent, -> { order(created_at: :desc) }
+  scope :with_school, ->(school_id) { where(school_id: school_id) }
 
   ROLES = ["admin", "school admin", "student"].freeze
   attr_accessor :role
