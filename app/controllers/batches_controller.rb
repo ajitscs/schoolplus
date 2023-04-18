@@ -1,13 +1,17 @@
 class BatchesController < ApplicationController
   load_and_authorize_resource
-  before_action :initialize_school
-  before_action :initialize_course
+  before_action :initialize_course, except: [:enrol]
   before_action :initialize_batch, only: [:show, :update, :edit, :destroy]
   before_action :validate_school_admin, only: [:edit, :update, :show]
   
 
   def index
     @batches = @course.batches.all.order(id: :desc)#.paginate(page: params[:page])
+  end
+
+  def enrol
+    # list all the batches for enrollment request by student
+    @batches = @school.batches.all.order(id: :desc)
   end
 
   def new
@@ -62,10 +66,6 @@ class BatchesController < ApplicationController
       flash[:error] = "course not found"
       redirect_to root_path and return
     end 
-  end
-
-  def initialize_school
-    @school = current_user.school
   end
 
   def initialize_batch

@@ -1,0 +1,32 @@
+Classmates view</b><br>
+
+<%= link_to "Home", root_path %>
+<br><br>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Student Name</th>
+      <th>Batch</th>
+      <th>Course</th>
+      <th>School</th>
+      <th>Progress/Rank</th>
+      <br />
+    </tr>
+  </thead>
+  <tbody>
+    <% @student_batches.each do |student_batch| %>
+      <tr>
+        <td><%= student_batch.id %></td>
+        <td><%= student_batch.user.full_name %></td>
+        <td><%= student_batch.batch.title %></td>
+        <td><%= student_batch.batch.course.title %></td>
+        <td><%= student_batch.batch.school.title %></td>
+        <td>
+          *****
+        </td>
+      </tr>
+    <% end %>    
+  </tbody>
+</table>

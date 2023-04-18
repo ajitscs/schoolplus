@@ -25,6 +25,9 @@ Manage batches for Course <b><%= @course.title %></b><br>
           <%= link_to "Edit", edit_school_course_batch_path(school_id: @school.id, course_id: @course.id, id: batch.id) %>
           <%= link_to "Show", school_course_batch_path(school_id: @school.id, course_id: @course.id, id: batch.id) %>
           <%= link_to "Destroy", school_course_batch_path(school_id: @school.id, course_id: @course.id, id: batch.id), method: :delete, data: { confirm: "Are you sure?" } %>
+          <% if current_user.school_admin? %>
+            <%= link_to "Manage Enrollment Requests", batch_student_batches_path(batch_id: batch.id) %>
+          <% end %>
         </td>
       </tr>
     <% end %>    

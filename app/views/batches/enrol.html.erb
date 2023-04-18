@@ -1,0 +1,43 @@
+Request for Enrollment into the Batches</b><br>
+
+<%= link_to "Home", root_path %>
+<br><br>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Start Date</th>
+      <th>Course</th>
+      <th>School</th>
+      <th>Request Enrollment</th>
+      <br />
+    </tr>
+  </thead>
+  <tbody>
+    <% @batches.each do |batch| %>
+      <tr>
+        <td><%= batch.id %></td>
+        <td><%= batch.title %></td>
+        <td><%= batch.start_date %></td>
+        <td><%= batch.course.title %></td>
+        <td><%= batch.school.title %></td>
+        <td>
+          <% batch_request = current_user.batch_request(batch.id) %>
+          <% if batch_request.present? %>
+            <% if batch_request.approved? %>
+              Your are enrolled for this batch.
+            <% elsif batch_request.denied? %>
+              Your enrollment request is denied by School Admin. 
+            <% elsif batch_request.requested? %>
+              Your enrollment request is pending for approval.
+            <% end %>
+          <% else %>
+            <%= button_to "Request Enrollment", student_batches_path(id: batch.id) %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>    
+  </tbody>
+</table>

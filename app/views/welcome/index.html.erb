@@ -14,12 +14,11 @@
     <%= link_to "Manage Courses", school_courses_path(school_id: @school.id) %><br>
     
     <%= link_to "Manage Students", users_path %><br>
-    <%= link_to "Manage Enrollment Requests" %><br>
   <% end %>
   
   <!-- for students -->
   <% if current_user.student? %>
-    <%= link_to "Classmates", users_path %><br>
-    <%= link_to "Enrol" %><br>
+    <%= link_to "Classmates", classmates_path %><br>
+    <%= link_to "Enrol into Batch", enrol_batches_path %><br>
   <% end %>
 <% end %>

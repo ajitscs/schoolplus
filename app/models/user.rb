@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :school
+  has_many :student_batches
 
   validates :first_name, :last_name, :email, :contact, presence: true
   validates_format_of :contact, :with =>  /\d[0-9]\)*\z/ , :message => "Only positive number without spaces are allowed"
@@ -44,6 +45,10 @@ class User < ApplicationRecord
 
   def set_password
     SecureRandom.hex(8)
+  end
+
+  def batch_request(batch_id)
+    student_batches.where(batch_id: batch_id).first
   end
 
   private

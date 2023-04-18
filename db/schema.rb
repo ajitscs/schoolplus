@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_17_144311) do
+ActiveRecord::Schema.define(version: 2023_04_18_091942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,15 @@ ActiveRecord::Schema.define(version: 2023_04_17_144311) do
     t.string "contact"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "student_batches", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "batch_id"
+    t.integer "status", default: 0
+    t.index ["batch_id"], name: "index_student_batches_on_batch_id"
+    t.index ["user_id", "batch_id"], name: "index_student_batches_on_user_id_and_batch_id", unique: true
+    t.index ["user_id"], name: "index_student_batches_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

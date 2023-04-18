@@ -4,4 +4,5 @@ class Batch < ApplicationRecord
   belongs_to :school
   belongs_to :user 
   belongs_to :course
+  has_many :student_batches
 end

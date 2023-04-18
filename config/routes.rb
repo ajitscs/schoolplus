@@ -10,7 +10,18 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users
-
+  get 'classmates', to: 'student_batches#classmates'
+  
+  resources :batches, only: [] do
+    
+    collection do
+      get :enrol
+    end
+    
+    resources :student_batches, only: [:index, :create] do
+      patch :approve
+      patch :deny
+    end
+  end
 
 end
