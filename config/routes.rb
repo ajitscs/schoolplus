@@ -10,10 +10,9 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'classmates', to: 'student_batches#classmates'
+  resources :users
   
-  resources :batches, only: [] do
-    
+  resources :batches, only: [] do    
     collection do
       get :enrol
     end
@@ -24,4 +23,5 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'classmates', to: 'student_batches#classmates'
 end

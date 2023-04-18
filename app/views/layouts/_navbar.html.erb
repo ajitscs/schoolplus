@@ -1,11 +1,9 @@
 <nav class="navbar navbar-dark bg-custom-2">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#a">Schoolplus</a>
-    <div class="logo"> 
+    <a class="navbar-brand" href="<%= root_path %>">Schoolplus</a>
+    <!-- <div class="logo"> 
       <%#= image_tag asset_url('logo.png') %>
-    </div>
-<!-- Login and Logout button -->
-
+    </div> -->
     <% if user_signed_in? %>
       Welcome <b><%= current_user.full_name %></b>, you are login with <b><%= current_user.role_name %></b> role<br>
       <% if @school.present? %>

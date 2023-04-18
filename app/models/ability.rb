@@ -5,9 +5,11 @@ class Ability
 
   def initialize(user)
     # Define abilities for the user here. For example:
-    #
-    # byebug
     return unless user.present?
+    if user.admin?
+      can :manage, :all # can manage every thing across the platform
+    end
+
     if user.school_admin?
       can :manage, User # can manage the students
       can :update, School # can udpate his own school info
@@ -15,10 +17,6 @@ class Ability
       can :manage, Course # can manage the courses
       can :manage, Batch # can manage the batches
       can :manage, StudentBatch # can manage enrollment requests
-    end
-
-    if user.admin?
-      can :manage, :all # can manage every thing across the platform
     end
 
     if user.student?

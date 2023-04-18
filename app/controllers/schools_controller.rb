@@ -60,6 +60,7 @@ class SchoolsController < ApplicationController
   end
 
   def validate_school_admin
+    return if current_user.admin?
     return if current_user.school_admin? && current_user.school == @school
     flash[:error] = "You are not authorized to update this school"
     redirect_to root_path and return
